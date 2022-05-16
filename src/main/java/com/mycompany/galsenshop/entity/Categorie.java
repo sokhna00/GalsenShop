@@ -8,14 +8,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Objects;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Diarra
  */
 
-@XmlRootElement(name = "categorie",namespace = "http://ept.sn")
 @Entity
 public class Categorie implements Serializable {
 
@@ -25,8 +23,7 @@ public class Categorie implements Serializable {
     private String libelle;
     private String description;
     private Double tva;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "code_categorie", fetch = FetchType.LAZY)
-    private Collection<Article> acticleCollection;
+   
 
 
     public Categorie() {

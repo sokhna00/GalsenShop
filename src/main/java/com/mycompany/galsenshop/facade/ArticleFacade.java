@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class ArticleFacade extends AbstractFacade<Article> {
 
-    @PersistenceContext(unitName = "my_persistence_unit")
+    @PersistenceContext(unitName = "galsenShopPU")
     private EntityManager em;
 
     @Override

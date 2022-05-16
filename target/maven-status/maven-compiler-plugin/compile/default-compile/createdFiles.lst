@@ -1,2 +1,11 @@
+com\mycompany\galsenshop\entity\Article.class
+com\mycompany\galsenshop\facade\AbstractFacade.class
+com\mycompany\galsenshop\entity\Client.class
+com\mycompany\galsenshop\entity\Categorie.class
+com\mycompany\galsenshop\facade\CategorieFacade.class
+com\mycompany\galsenshop\init\InitCategorie.class
 com\mycompany\galsenshop\JAXRSConfiguration.class
+com\mycompany\galsenshop\entity\Facture.class
 com\mycompany\galsenshop\resources\JavaEE8Resource.class
+com\mycompany\galsenshop\entity\LigneArticle.class
+com\mycompany\galsenshop\facade\ArticleFacade.class

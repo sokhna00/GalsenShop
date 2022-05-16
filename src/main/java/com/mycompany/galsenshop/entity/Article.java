@@ -7,14 +7,12 @@ package com.mycompany.galsenshop.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Diarra
  */
 
-@XmlRootElement(name = "article",namespace = "http://ept.sn")
 @Entity
 public class Article implements Serializable {
 
@@ -25,11 +23,7 @@ public class Article implements Serializable {
     private Double prix_unitaire;
     private String unite;
     private Double qte_stock;
-    @JoinColumn(name = "code_categorie", referencedColumnName = "code")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private String code_categorie;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "code_article", fetch = FetchType.LAZY)
-    private Collection<Article> ligneacticleCollection;
+    
 
     public Article() {
     }
@@ -83,13 +77,7 @@ public class Article implements Serializable {
         this.qte_stock = qte_stock;
     }
 
-    public String getCode_categorie() {
-        return code_categorie;
-    }
 
-    public void setCode_categorie(String code_categorie) {
-        this.code_categorie = code_categorie;
-    }
 }
 
 
