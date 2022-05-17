@@ -7,6 +7,8 @@ package com.mycompany.galsenshop.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -19,17 +21,23 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Article implements Serializable {
 
     @Id
+   @Column 
     private String code;
+    @Column
     private String libelle;
+    @Column
     private String description;
+    @Column
     private Double prix_unitaire;
+    @Column
     private String unite;
+    @Column
     private Double qte_stock;
-    @JoinColumn(name = "code_categorie", referencedColumnName = "code")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private String code_categorie;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "code_article", fetch = FetchType.LAZY)
-    private Collection<Article> ligneacticleCollection;
+     @ManyToOne
+    @JoinColumn(name = "categorie_code",updatable = false)
+    private Categorie categorie;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<LigneArticle> ligneArticles = new HashSet<>();
 
     public Article() {
     }
@@ -83,13 +91,7 @@ public class Article implements Serializable {
         this.qte_stock = qte_stock;
     }
 
-    public String getCode_categorie() {
-        return code_categorie;
-    }
-
-    public void setCode_categorie(String code_categorie) {
-        this.code_categorie = code_categorie;
-    }
+   
 }
 
-
+        

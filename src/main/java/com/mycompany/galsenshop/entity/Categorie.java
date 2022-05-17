@@ -7,7 +7,9 @@ package com.mycompany.galsenshop.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -25,9 +27,9 @@ public class Categorie implements Serializable {
     private String libelle;
     private String description;
     private Double tva;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "code_categorie", fetch = FetchType.LAZY)
-    private Collection<Article> acticleCollection;
-
+     @OneToMany
+    @JoinColumn(name = "categorie_code")
+    private Set<Article> Desarticles= new HashSet<>();
 
     public Categorie() {
     }
