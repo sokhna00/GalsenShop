@@ -5,27 +5,46 @@
 package com.mycompany.galsenshop.facade;
 
 import com.mycompany.galsenshop.entity.Categorie;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
  * @author Diarra
  */
-@Stateless
-public class CategorieFacade extends AbstractFacade<Categorie> {
 
-    @PersistenceContext(unitName = "my_persistence_unit")
+@Stateless
+public class CategorieFacade extends AbstractFacade<Categorie>{
+
+    @PersistenceContext(unitName = "StockManagementPU")
     private EntityManager em;
+    
+    
+        public CategorieFacade() {
+        super(Categorie.class);
+    }
 
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
-
-    public CategorieFacade() {
-        super(Categorie.class);
-    }
     
+     public List<Categorie> findCategorie(String searchText) {
+        
+        String requete = "SELECT c FROM Categorie c WHERE c.libelle like '%" + searchText + "%' ORDER BY c.code DESC";
+
+        Query q = em.createQuery(requete);
+
+        return q.getResultList();
+
+    }
+
+    public void remove(Long categid){
+        Categorie categ = find(categid);
+        em.remove(categ);
+        System.out.println("Employee removed......");
+    }
 }
