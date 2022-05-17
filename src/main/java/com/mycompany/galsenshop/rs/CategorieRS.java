@@ -4,10 +4,15 @@
  */
 package com.mycompany.galsenshop.rs;
 
+import javax.ws.rs.Path;
+
 /**
  *
  * @author Diarra
  */
+
+@Path("cateogrie")
 public class CategorieRS {
+    
     
 }
