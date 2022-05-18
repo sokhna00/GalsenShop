@@ -19,7 +19,7 @@ import javax.persistence.Query;
 @Stateless
 public class CategorieFacade extends AbstractFacade<Categorie>{
 
-    @PersistenceContext(unitName = "StockManagementPU")
+    @PersistenceContext(unitName = "galsenShopPU")
     private EntityManager em;
     
     

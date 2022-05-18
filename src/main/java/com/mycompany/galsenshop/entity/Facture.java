@@ -129,5 +129,8 @@ public class Facture implements Serializable {
         this.cientId = cientId;
         this.client = client;
     }
+
+    public Facture() {
+    }
     
 }

@@ -140,6 +140,9 @@ public class LigneArticle implements Serializable {
     @JoinColumn(updatable = false,insertable = false)
     private Facture facture;
 
+    public LigneArticle() {
+    }
+
    
 
     public LigneArticle(String articlePkey, Double quantite, Integer idFacture, String idArticle, Facture facture, Article article) {

@@ -22,7 +22,7 @@ import java.util.List;
 @Stateless
 public class ArticleFacade extends AbstractFacade<Article> {
 
-    @PersistenceContext(unitName = "StockManagementPU")
+    @PersistenceContext(unitName = "galsenShopPU")
     private EntityManager em;
 
 

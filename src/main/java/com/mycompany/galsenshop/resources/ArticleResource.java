@@ -17,6 +17,7 @@ import java.util.List;
  *
  * @author Diarra
  */
+@Path("articles")
 public class ArticleResource {
 
     @EJB

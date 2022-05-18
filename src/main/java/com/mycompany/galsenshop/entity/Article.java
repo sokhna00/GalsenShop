@@ -42,6 +42,16 @@ public class Article implements Serializable {
     public Article() {
     }
 
+    public Article(String code, String libelle, String description, Double prix_unitaire, String unite, Double qte_stock, Categorie categorie) {
+        this.code = code;
+        this.libelle = libelle;
+        this.description = description;
+        this.prix_unitaire = prix_unitaire;
+        this.unite = unite;
+        this.qte_stock = qte_stock;
+        this.categorie = categorie;
+    }
+
 
     public String getCode() {
         return code;

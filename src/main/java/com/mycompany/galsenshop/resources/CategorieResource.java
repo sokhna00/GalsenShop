@@ -23,6 +23,7 @@ import javax.ws.rs.core.Response;
  * @author Diarra
  
  */
+@Path("categories")
 public class CategorieResource {
     
     @EJB
