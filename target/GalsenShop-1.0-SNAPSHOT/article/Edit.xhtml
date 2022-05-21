@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditArticleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditArticleLabel_code}" for="code" />
+                    <h:inputText id="code" value="#{articleController.selected.code}" title="#{bundle.EditArticleTitle_code}" />
+                    <h:outputLabel value="#{bundle.EditArticleLabel_libelle}" for="libelle" />
+                    <h:inputText id="libelle" value="#{articleController.selected.libelle}" title="#{bundle.EditArticleTitle_libelle}" />
+                    <h:outputLabel value="#{bundle.EditArticleLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{articleController.selected.description}" title="#{bundle.EditArticleTitle_description}" />
+                    <h:outputLabel value="#{bundle.EditArticleLabel_prix_unitaire}" for="prix_unitaire" />
+                    <h:inputText id="prix_unitaire" value="#{articleController.selected.prix_unitaire}" title="#{bundle.EditArticleTitle_prix_unitaire}" />
+                    <h:outputLabel value="#{bundle.EditArticleLabel_unite}" for="unite" />
+                    <h:inputText id="unite" value="#{articleController.selected.unite}" title="#{bundle.EditArticleTitle_unite}" />
+                    <h:outputLabel value="#{bundle.EditArticleLabel_qte_stock}" for="qte_stock" />
+                    <h:inputText id="qte_stock" value="#{articleController.selected.qte_stock}" title="#{bundle.EditArticleTitle_qte_stock}" />
+                </h:panelGrid>
+                <h:commandLink action="#{articleController.update}" value="#{bundle.EditArticleSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditArticleViewLink}"/>
+                <br />
+                <h:commandLink action="#{articleController.prepareList}" value="#{bundle.EditArticleShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditArticleIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

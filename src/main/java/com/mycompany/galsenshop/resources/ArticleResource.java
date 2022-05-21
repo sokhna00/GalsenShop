@@ -69,6 +69,11 @@ public class ArticleResource {
         Article c1=getArticleById(id);
 
         c1.setLibelle(c.getLibelle());
+        c1.setDescription(c.getDescription());
+        c1.setPrix_unitaire(c.getPrix_unitaire());
+
+        c1.setQte_stock(c.getQte_stock());
+        c1.setUnite(c.getUnite());
 
         articleFacade.edit(c1);
 
@@ -76,17 +81,21 @@ public class ArticleResource {
 
     }
 
-    //rechercher un article
+    //lister les articles avec possibilite de paginer
     @GET
-    @Path("/search")
+    @Path("/searchwithP")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Article> findArticle(@QueryParam("text") String searchText) {
-        return articleFacade.findArticle(searchText);
+    public List<Article> getArticles(@QueryParam("start") int start,
+                                     @QueryParam("size") int size ){
+        if(start > 0 && size > 0) {
+            articleFacade.getAllArticlePaginated(start, size);
+        }
+        return articleFacade.findAll();
     }
 
     //supprimer un article
     @DELETE
-    @Path("{id}")
+    @Path("/{id}")
     public void remove(@PathParam("id") Long id) {
         articleFacade.remove(id);
     }

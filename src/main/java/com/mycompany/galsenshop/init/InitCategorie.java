@@ -25,14 +25,13 @@ public class InitCategorie {
     @EJB
     private CategorieFacade categorieFacade;
 
-    //permet de créer l'objet au démarrage
     @PostConstruct
     public void init() {
-        System.out.println("Demarrage de l'application");
+        System.out.println("Au Demarrage de l'application");
 
         if (categorieFacade.count() == 0) {
 
-            System.out.println("la BD contient :" + categorieFacade.count() + "elements");
+            System.out.println("le nombre d'elements de la BD est :" + categorieFacade.count() + " ");
 
             Categorie c1 = new Categorie("BSE", "biens sociaux essentiels", "les médicaments,appareils médico-chirurgicaux,le papier journal, les livres, les journaux",0.0);
             Categorie c2 = new Categorie("BPN", "biens de premières nécessités", "Les matières premières de base, les biens d'équipement et les intrants spécifiques", 0.05);
@@ -40,6 +39,8 @@ public class InitCategorie {
             Categorie c4 = new Categorie("BCF", "Biens de consommation finale", "Catégorie par défaut", 0.2);
 
 
+            
+            
             categorieFacade.create(c1);
             categorieFacade.create(c2);
             categorieFacade.create(c3);
